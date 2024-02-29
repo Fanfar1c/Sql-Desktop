@@ -2,20 +2,20 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QListWidgetItem
 import sys
 from PyQt5 import QtCore, QtGui
-from ss import Ui_MainWindow  
-from database_utils import connect_database, fetch_tables, close_database
+from designer_main import Ui_MainWindow
 
-def zop_database():
-    con = connect_database("tutorial.db")
-    cursor = con.cursor()
 
-    tables = fetch_tables(cursor)
+# def zop_database(ui):
+#     con = connect_database("tutorial.db")
+#     cursor = con.cursor()
 
-    for table in tables:
-        item = QListWidgetItem(table[0])
-        ui.listWidget_2.addItem(item)
+#     tables = fetch_tables(cursor)
 
-    close_database(con)
+#     for table in tables:
+#         item = QListWidgetItem(table[0])
+#         ui.listWidget_2.addItem(item)
+
+#     close_database(con)
     
 
 if __name__ == "__main__":
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
 
-    zop_database()
+    # zop_database(ui)
 
     MainWindow.show()
     sys.exit(app.exec_())
